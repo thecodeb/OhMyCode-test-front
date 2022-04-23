@@ -1,0 +1,15 @@
+<div class="container">
+    <h1 class="omc__hidden__content">Login</h1>
+    <div class="row omc__login__wrapper mt-5">
+        <h3 class="mb-3">Wellcome to TODOS APP</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="form-group mb-3">
+                <input type="text" class="form-control omc__login__input" id="username" placeholder="Your username" formControlName="username">
+            </div>
+            <div class="form-group mb-3">
+                <input type="password" class="form-control omc__login__input" id="password" placeholder="Your password" formControlName="password" autocomplete="false">
+            </div>
+            <button type="submit" class="btn btn-primary omc__login__button">LogIn</button>
+        </form>
+    </div>
+</div>

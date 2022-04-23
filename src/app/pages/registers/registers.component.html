@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="omc__hidden__content">Registers</h1>
+    <div class="row mt-5">
+        <div class="row omc__table__filters">
+            <input class="omc__table__filters__title" type="text" name="tileFilter" #titleFilter placeholder="Search by title..." (keyup)="filterByTitle(titleFilter.value)" />
+            <select class="form-select form-select__custom" aria-label=".form-select-sm example" (change)="filterById($event.target)">
+        <option *ngFor="let item of userList" value="{{item.id}}" id="{{ item.id }}" >
+          {{ item.value }}
+        </option>
+      </select>
+            <button type="button" class="btn btn-outline-success button__custom--create" (click)="createElement()">
+        New register
+      </button>
+        </div>
+        <div class="table-responsive omc__table__scrollable mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col ">User</th>
+                        <th scope="col ">Title</th>
+                        <th scope="col ">Status</th>
+                        <th scope="col ">Options</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of registers; let i = index;">
+                        <th class="omc__table__register" scope="row ">{{ post.userName }}</th>
+                        <td class="omc__table_register">{{ post.title }}</td>
+                        <td class="omc__table__register" *ngIf="post.completed">
+                            Completed
+                        </td>
+                        <td class="omc__table__register" *ngIf="!post.completed">
+                            Not completed
+                        </td>
+                        <td class="omc__table__register">
+                            <button class="btn omc__register__button--edit" data-toggle="tooltip" data-placement="top" title="Edit element" (click)="editElement(post.uid)">
+                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true "></i>
+              </button>
+                            <button class="btn omc__register__button--delete" data-toggle="tooltip" data-placement="top" title="Delete element" (click)="askIfDelete(post.uid, i)">
+                <i class="fa fa-trash-o fa-2x" aria-hidden="true "></i>
+              </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

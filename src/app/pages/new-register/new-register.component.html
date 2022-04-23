@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 class="omc__hidden__content">New register</h1>
+    <div class="row omc__new__register__form__wrapper mt-5">
+        <h3 class="mb-5">Create new register</h3>
+        <form [formGroup]="newRegisterForm" (ngSubmit)="newRegister()">
+            <div class="form-group mb-3">
+                <input type="text" class="form-control omc__new__register__form__uid__input" id="userIdInput" formControlName="user" readonly>
+            </div>
+            <div class="form-group mb-3">
+                <textarea class="form-control omc__new__register__form__textarea" id="titleInput" cols="30" rows="3" placeholder="Write here the title of your post" formControlName="title"></textarea>
+            </div>
+            <div class="form-group form-check mb-3">
+                <select class="form-select omc__new__register__form__select__input " name="completedSelect" id="comletedSelect" formControlName="completed">
+                  <option value="default" hidden>Choose an option</option>
+                  <option value="completed">Completed</option>
+                  <option value="no completed">Not completed</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-outline-primary omc__new__register__form__submit">Create register</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4">
+            <nav id="navbar-scrollspy" class="navbar navbar-light bg-transparent flex-column align-items-stretch p-3">
+                <a class="navbar-brand" href="#">Documentation sections: </a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link" href="/documentacion/#presentation">Presentation</a>
+                    <a class="nav-link" href="/documentacion/#tech">Technologies</a>
+                    <a class="nav-link" href="/documentacion/#deploy">Project deploy</a>
+                    <a class="nav-link" href="/documentacion/#urls">Backend paths</a>
+                    <a class="nav-link" href="/documentacion/#code">Where find the code</a>
+                </nav>
+            </nav>
+        </div>
+        <div class="col">
+            <div class="card myDocCard">
+                <div class="card-body" data-bs-target="#navbar-scrollspy">
+                    <div class="row" id="presentation">
+                        <h2>Aptitude test for OhMyCode</h2>
+                        <span>This project is made for show my skills as developer for OhMyCode.</span>
+                    </div>
+                    <div class="row mt-3" id="techs">
+                        <h2>Technologies</h2>
+                        <span><b>These are the front-end techs used in this project:</b></span>
+                        <ol class="list-group list-group-flush mt-3">
+                            <li class="list-group-item">Angular 13</li>
+                            <li class="list-group-item">Bootstrap 5</li>
+                            <li class="list-group-item">SweetAlert2</li>
+                        </ol>
+                        <span><b>These are the back-end techs used in this project:</b></span>
+                        <ol class="list-group list-group-flush mt-3">
+                            <li class="list-group-item">NodeJS</li>
+                            <li class="list-group-item">Express</li>
+                            <li class="list-group-item">Mongoose</li>
+                        </ol>
+                        <span><b>These is the database tech used in this project:</b></span>
+                        <ol class="list-group list-group-flush mt-3">
+                            <li class="list-group-item">MongoDB</li>
+                        </ol>
+                    </div>
+                    <div class="row" id="deploy">
+                        <h2>Project deploy: </h2>
+                        <ol class="list-group list-group-flush mt-3">
+                            <li class="list-group-item"><a href="https://guadaltech-front-test.netlify.app/index" target="_blank">Project deploy website</a></li>
+                        </ol>
+                    </div>
+                    <div class="row" id="urls">
+                        <h2>Rutas del back-end: </h2>
+                        <ol class="list-group list-group-flush mt-3">
+                            <li class="list-group-item list-group-item-success"><span class="badge badge-success">GET:</span> https://ohmycode-test-brian.herokuapp.com/api/todos</li>
+                            <li class="list-group-item list-group-item-primary"><span class="badge badge-primary">POST:</span> https://ohmycode-test-brian.herokuapp.com/api/todos/new</li>
+                            <li class="list-group-item list-group-item-warning"><span class="badge badge-warning">PUT:</span> https://ohmycode-test-brian.herokuapp.com/api/todos/:id | Parámetros en el body: PersonScheema</li>
+                            <li class="list-group-item list-group-item-danger"><span class="badge badge-danger">DELETE:</span> https://ohmycode-test-brian.herokuapp.com/api/todos/:id</li>
+                        </ol>
+                    </div>
+                    <div class="row mt-3" id="code" name="code">
+                        <h2>Dónde encontrar el código fuente: </h2>
+                        <ol class="list-group list-group-flush mt-3">
+                            <li class="list-group-item"><a href="https://github.com/thecodeb/guadaltech-front-end-test" target="_blank">Front-end´s GitHub repository</a></li>
+                            <li class="list-group-item"><a href="https://github.com/thecodeb/guadaltech-back-end-test" target="_blank">Back-end´s GitHub repository</a></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

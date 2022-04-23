@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/registers">TODOS APP</a>
+    </div>
+    <div class="d-flex" *ngIf="username !== ''">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle omc__navbar__username" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{username}}
+        </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <li><a class="dropdown-item" (click)="logout()">Log out</a></li>
+            </ul>
+        </li>
+    </div>
+</nav>
