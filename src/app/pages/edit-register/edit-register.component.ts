@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Register } from 'src/app/shared/clases/register';
 import Swal from 'sweetalert2';
 import { TodosService } from '../../services/todos.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-edit-register',
@@ -15,15 +16,18 @@ export class EditRegisterComponent implements OnInit {
   editRegisterForm: FormGroup;
   registerId: any;
   registerData: any;
+  userName: string;
 
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private todosService: TodosService,
+    private userService: UsersService
   ) {
-    this.registerId = 0;
     this.editRegisterForm = this.fb.group({});
+    this.registerId = 0;
+    this.userName = '';
   }
 
   ngOnInit(): void {
@@ -42,6 +46,9 @@ export class EditRegisterComponent implements OnInit {
     const { user, title, completed } = response;
     let status;
     completed === true? (status = 'completed'): (status = 'no completed');
+    this.userService.getUserName(user).subscribe((res: any) => {
+        this.userName = res;
+    });
     return this.fb.group({
       user: [user, [Validators.required]],
       title: [title, [Validators.required, Validators.maxLength(199)]],
@@ -69,7 +76,7 @@ export class EditRegisterComponent implements OnInit {
       });
       return;
     }
-    if (title !== '') {
+    if (title !== '' && user !== null) {
       const newRegister = new Register(user, title, completed);
       this.todosService.updateRegister(this.registerId, newRegister).subscribe((res: any) => {
         if(res.status === 200){

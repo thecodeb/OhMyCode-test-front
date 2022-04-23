@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Register } from 'src/app/shared/clases/register';
 import { TodosService } from '../../services/todos.service';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-new-register',
@@ -12,13 +13,16 @@ import { TodosService } from '../../services/todos.service';
 })
 export class NewRegisterComponent implements OnInit {
   newRegisterForm: FormGroup;
+  userName: string;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private todosService: TodosService
+    private todosService: TodosService,
+    private userService: UsersService
   ) {
     this.newRegisterForm = this.initForm();
+    this.userName = '';
   }
 
   ngOnInit(): void {}
@@ -30,6 +34,9 @@ export class NewRegisterComponent implements OnInit {
 
   initForm() {
     const userId = localStorage.getItem('uid');
+    this.userService.getUserName(userId).subscribe((res: any) => {
+      this.userName = res;
+  });
     return this.fb.group({
       user: [userId, [Validators.required]],
       title: ['', [Validators.required, Validators.maxLength(199)]],

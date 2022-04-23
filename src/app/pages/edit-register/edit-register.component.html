@@ -4,7 +4,7 @@
         <h3 class="mb-5">Modify register</h3>
         <form [formGroup]="editRegisterForm" (ngSubmit)="editRegister()">
             <div class="form-group mb-3">
-                <input type="text" class="form-control omc__edit__register__form__uid__input" id="userIdInput" formControlName="user" readonly>
+                <input type="text" class="form-control omc__edit__register__form__uid__input" id="userIdInput" value="{{userName}}" formControlName="user" readonly>
             </div>
             <div class="form-group mb-3">
                 <textarea class="form-control omc__edit__register__form__textarea" id="titleInput" cols="30" rows="3" placeholder="Write here the title of your post" formControlName="title"></textarea>
