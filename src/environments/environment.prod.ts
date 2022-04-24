@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  liveApi: 'https://omc-backend-test.herokuapp.com'
 };

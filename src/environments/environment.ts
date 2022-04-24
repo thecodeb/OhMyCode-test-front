@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   fakeDataApiUrl: 'https://jsonplaceholder.typicode.com',
   localHost: 'http://localhost:3000',
-  liveApi: ''
+  liveApi: 'https://omc-backend-test.herokuapp.com/'
 };
 
 /*

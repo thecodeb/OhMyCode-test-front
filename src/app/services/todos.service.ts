@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
-import { environment } from 'src/environments/environment';
+//import { environment } from 'src/environments/environment';
+import { environment } from 'src/environments/environment.prod';
 import { Register } from '../shared/clases/register';
 
 @Injectable({
@@ -30,7 +31,7 @@ export class TodosService {
    */
 
   getAllRegisters(){
-    return this.http.get(`${environment.localHost}/api/todos`, {headers: this.headerOptions});
+    return this.http.get(`${environment.liveApi}/api/todos`, {headers: this.headerOptions});
   }
 
   /**
@@ -40,8 +41,9 @@ export class TodosService {
    */
 
    getAllRegistersById(id: any){
-     console.log(`${environment.localHost}/api/todos/${id}`)
-    return this.http.get(`${environment.localHost}/api/todos/${id}`, {headers: this.headerOptions})
+     console.log(    `${environment.liveApi}/api/todos/${id}`
+     )
+    return this.http.get(`${environment.liveApi}/api/todos/${id}`, {headers: this.headerOptions})
     .pipe(
       map((res: any) => {
         return res.data[0]? res.data[0] : res;
@@ -56,7 +58,7 @@ export class TodosService {
    */
 
     createNewRegister(register: Register){
-      return this.http.post(`${environment.localHost}/api/todos/new`, register, {headers: this.headerOptions});
+      return this.http.post(`${environment.liveApi}/api/todos/new`, register, {headers: this.headerOptions});
     }
 
   /**
@@ -67,7 +69,7 @@ export class TodosService {
    */
 
    updateRegister(id: any, register: Register){
-    return this.http.put(`${environment.localHost}/api/todos/modificar/${id}`, register, {headers: this.headerOptions});
+    return this.http.put(`${environment.liveApi}/api/todos/modificar/${id}`, register, {headers: this.headerOptions});
   }
 
   /**
@@ -77,7 +79,7 @@ export class TodosService {
    */
 
   removeRegisterById(id: string){
-    return this.http.delete(`${environment.localHost}/api/todos/${id}`, {headers: this.headerOptions});
+    return this.http.delete(`${environment.liveApi}/api/todos/${id}`, {headers: this.headerOptions});
   }
 
 
