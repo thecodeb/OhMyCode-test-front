@@ -32,7 +32,7 @@ export class EditRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerId = this.route.snapshot.paramMap.get('id');
-    this.todosService.getAllRegistersById(this.registerId).subscribe((res: any) => {
+    this.todosService.getRegisterById(this.registerId).subscribe((res: any) => {
       this.editRegisterForm = this.initEditForm(res);
     });
   }

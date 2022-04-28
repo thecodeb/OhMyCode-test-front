@@ -82,7 +82,7 @@ export class RegistersComponent implements OnInit {
     const value = event.value;
     value === '0'
       ? this.getDefaultAll()
-      : this.todosService.getAllRegistersById(value).subscribe((res: any) => {
+      : this.todosService.getAllRegistersByUser(value).subscribe((res: any) => {
         res.forEach((todos: any) => {
           this.userService.getUserName(todos.user).subscribe((res: any) => {
             todos.userName = res;

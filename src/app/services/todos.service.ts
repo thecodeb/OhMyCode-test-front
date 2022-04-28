@@ -40,16 +40,29 @@ export class TodosService {
    * @return
    */
 
-   getAllRegistersById(id: any){
-     console.log(    `${environment.liveApi}/api/todos/${id}`
-     )
-    return this.http.get(`${environment.liveApi}/api/todos/${id}`, {headers: this.headerOptions})
+   getAllRegistersByUser(id: any){
+    return this.http.get(`${environment.liveApi}/api/todos/user/${id}`, {headers: this.headerOptions})
     .pipe(
       map((res: any) => {
-        return res.data[0]? res.data[0] : res;
+        return res.data? res.data : res;
       })
     )
   }
+
+    /**
+   * Función para obtener un registro determinado
+   * @param id
+   * @return
+   */
+
+     getRegisterById(id: any){
+     return this.http.get(`${environment.liveApi}/api/todos/${id}`, {headers: this.headerOptions})
+     .pipe(
+       map((res: any) => {
+         return res.data[0]? res.data[0] : res;
+       })
+     )
+   }
 
    /**
    * Función para crear un nuevo registro
